@@ -8,6 +8,9 @@ class BaseConfig:
     DATABASE_URL: str = os.getenv('DATABASE_URL')
     DATABASE_CONNECT_DICT: dict = {}
 
+    CELERY_BROKER_URL: str = os.getenv('CELERY_BROKER_URL')
+    CELERY_RESULT_BACKEND: str = os.getenv('CELERY_RESULT_BACKEND')
+
 
 class DevelopmentConfig(BaseConfig):
     pass
