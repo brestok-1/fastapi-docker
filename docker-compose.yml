@@ -12,7 +12,7 @@ services:
     ports:
       - 8010:8000
     env_file:
-      - .env/.dev-sample
+      - .env
     depends_on:
       - redis
       - db
@@ -40,7 +40,7 @@ services:
     volumes:
       - .:/fastapidocker
     env_file:
-      - .env/.dev-sample
+      - .env
     depends_on:
       - redis
       - db
@@ -54,7 +54,7 @@ services:
     volumes:
       - .:/fastapidocker
     env_file:
-      - .env/.dev-sample
+      - .env
     depends_on:
       - redis
       - db
@@ -67,7 +67,7 @@ services:
     volumes:
       - .:/fastapidocker
     env_file:
-      - .env/.dev-sample
+      - .env
     ports:
         - 5577:5555
     depends_on:
@@ -75,4 +75,4 @@ services:
       - db
 
 volumes:
-  postgres_data
+  postgres_data:
