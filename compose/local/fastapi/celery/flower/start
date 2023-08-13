@@ -12,4 +12,4 @@ until worker_ready ; do
 done
 >&2 echo 'Celery worker is available'
 
-celery flower -A main.celery --broker=${CELERY_BROKER_URL}
+celery -A main.celery flower --broker=${CELERY_BROKER_URL}

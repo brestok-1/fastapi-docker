@@ -10,7 +10,7 @@ def create_app() -> FastAPI:
     app.include_router(users_router)
 
     @app.get('/')
-    async def root() -> dict[str:str]:
+    async def root() -> dict[str, str]:
         return {'message': 'Hello world!'}
 
     return app
