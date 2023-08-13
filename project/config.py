@@ -5,7 +5,12 @@ from functools import lru_cache
 
 class BaseConfig:
     BASE_DIR: pathlib.Path = pathlib.Path(__file__).parent.parent
-    DATABASE_URL: str = os.getenv('DATABASE_URL')
+    DATABASE_URL = (f'postgresql://'
+                    f'{os.getenv("POSTGRES_USER")}:'
+                    f'{os.getenv("POSTGRES_PASSWORD")}@'
+                    f'{os.getenv("POSTGRES_HOST")}:'
+                    f'{os.getenv("POSTGRES_PORT")}/'
+                    f'{os.getenv("POSTGRES_DB")}')
     DATABASE_CONNECT_DICT: dict = {}
 
     CELERY_BROKER_URL: str = os.getenv('CELERY_BROKER_URL')

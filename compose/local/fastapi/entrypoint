@@ -12,23 +12,15 @@ python << END
 import sys
 
 import psycopg2
-import urllib.parse as urlparse
 import os
-
-url = urlparse.urlparse(os.getenv('DATABASE_URL'))
-dbname = url.path[1:]
-user = url.username
-password = url.password
-host = url.hostname
-port = url.port
 
 try:
   psycopg2.connect(
-    dbname=dbname,
-    user=user,
-    password=password,
-    host=host,
-    port=port
+    host=os.getenv('POSTGRES_HOST'),
+    port=os.getenv('POSTGRES_PORT'),
+    user=os.getenv('POSTGRES_USER'),
+    password=os.getenv('POSTGRES_PASSWORD'),
+    dbname=os.getenv('POSTGRES_DB'),
   )
 except psycopg2.OperationalError:
   sys.exit(-1)
