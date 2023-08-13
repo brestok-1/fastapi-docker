@@ -1,6 +1,3 @@
-import os
-
-from celery import Celery
 from project import create_app
 
 app = create_app()

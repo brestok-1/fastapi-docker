@@ -50,7 +50,7 @@ services:
       context: .
       dockerfile: ./compose/local/fastapi/Dockerfile
     image: fastapi_celery_example_celery_worker
-    command: /start-flower
+    command: /start-celerybeat
     volumes:
       - .:/fastapidocker
     env_file:
