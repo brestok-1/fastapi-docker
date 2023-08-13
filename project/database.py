@@ -7,6 +7,6 @@ from project.config import setting
 Base = declarative_base()
 
 engine = create_engine(
-    str(setting.DATABASE_URL), connect_args=setting.DATABASE_CONNECT_DICT
+    setting.DATABASE_URL, connect_args=setting.DATABASE_CONNECT_DICT
 )
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
