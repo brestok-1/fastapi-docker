@@ -5,7 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-import project
+from project import create_app
 from project.config import setting
 from project.database import Base
 
@@ -20,6 +20,7 @@ if config.config_file_name is not None:
 
 config.set_main_option('sqlalchemy.url', str(setting.DATABASE_URL))
 
+fastapi_app = create_app()
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel

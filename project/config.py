@@ -16,6 +16,8 @@ class BaseConfig:
     CELERY_BROKER_URL: str = os.getenv('CELERY_BROKER_URL')
     CELERY_RESULT_BACKEND: str = os.getenv('CELERY_RESULT_BACKEND')
 
+    WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')
+
 
 class DevelopmentConfig(BaseConfig):
     pass
