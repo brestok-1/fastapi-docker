@@ -10,4 +10,5 @@ def divide(x: int, y: int) -> int | float:
 
 @shared_task
 def sample_task(email: str):
-    pass
+    from project.users.views import api_call
+    api_call(email)
