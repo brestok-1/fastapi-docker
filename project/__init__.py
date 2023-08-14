@@ -1,8 +1,8 @@
-# from broadcaster import Broadcast
+from broadcaster import Broadcast
 from fastapi import FastAPI
 from project.config import setting
 
-# broadcast = Broadcast(setting.WS_MESSAGE_QUEUE)
+broadcast = Broadcast(setting.WS_MESSAGE_QUEUE)
 
 
 def create_app() -> FastAPI:
@@ -13,6 +13,17 @@ def create_app() -> FastAPI:
 
     from project.users import users_router
     app.include_router(users_router)
+
+    from project.ws import ws_router
+    app.include_router(ws_router)
+
+    @app.on_event('startup')
+    async def startup_event():
+        await broadcast.connect()
+
+    @app.on_event('shutdown')
+    async def shutdown_event():
+        await broadcast.disconnect()
 
     @app.get('/')
     async def root() -> dict[str, str]:

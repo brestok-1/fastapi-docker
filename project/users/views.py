@@ -9,10 +9,8 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
 from . import users_router
-from .models import User
 from .schemas import UserBody
 from .tasks import sample_task, task_process_notification
-from ..database import SessionLocal
 
 logger = logging.getLogger(__name__)
 template = Jinja2Templates(directory='project/users/templates')
@@ -27,10 +25,6 @@ def api_call(email: str) -> None:
 
 @users_router.get('/form/')
 def form_example_get(request: Request):
-    user = User(email='6234513@gmail.com', username='maksim')
-    with SessionLocal() as session:
-        session.add(user)
-        session.commit()
     return template.TemplateResponse("form.html", {'request': request})
 
 
@@ -72,3 +66,10 @@ def webhook_test_async():
     task = task_process_notification.delay()
     print(task.id)
     return "pong"
+
+
+@users_router.get('/form-ws/')
+def form_ws_example(request: Request):
+    return template.TemplateResponse("form_ws.html", {'request': request})
+
+

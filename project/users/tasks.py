@@ -1,10 +1,13 @@
 import random
 
 import requests
+from asgiref.sync import async_to_sync
 from celery import shared_task
+from celery.signals import task_postrun
 from celery.utils.log import get_task_logger
 
 logger = get_task_logger('__name__')
+
 
 @shared_task
 def divide(x: int, y: int) -> int | float:
@@ -19,7 +22,7 @@ def sample_task(email: str):
     api_call(email)
 
 
-@shared_task(bind=True) # to use self.retry
+@shared_task(bind=True)  # to use self.retry
 def task_process_notification(self):
     try:
         if not random.choice([1, 0]):
@@ -29,3 +32,8 @@ def task_process_notification(self):
         logger.error('exception raised, it would be retry after 5 seconds')
         raise self.retry(exc=e, countdown=5)
 
+
+@task_postrun.connect
+def task_postrun_handler(task_id, **kwargs):
+    from project.ws.views import update_celery_task_status
+    async_to_sync(update_celery_task_status)(task_id)
