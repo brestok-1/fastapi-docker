@@ -1,6 +1,7 @@
 import os
 import pathlib
 from functools import lru_cache
+from kombu import Queue
 
 
 class BaseConfig:
@@ -20,6 +21,21 @@ class BaseConfig:
         #     'task': 'task_scheduled_work',
         #     'schedule': 5,
         # }
+    }
+    CELERY_TASK_DEFAULT_QUEUE = 'default'
+    # Force all queues to be explicitly listed in `CELERY_TASK_QUEUES` to help prevent typos
+    CELERY_TASK_CREATE_MISSING_QUEUES = False
+    CELERY_TASK_QUEUES = (
+        # need to define default queue here or exception would be raised
+        Queue('default'),
+
+        Queue('high_priority'),
+        Queue('low_priority'),
+    )
+    CELERY_TASK_ROUTER = {
+        'project.users.task.*': {
+            'queue': 'high_priority'
+        }
     }
 
     WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')

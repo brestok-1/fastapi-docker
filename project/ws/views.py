@@ -9,7 +9,7 @@ from project.celery_utils import get_task_info
 from project.ws import ws_router
 
 
-@ws_router.websocket("/ws/task_status/{task_id}")
+@ws_router.websocket("/ws/task-status/{task_id}")
 async def ws_task_status(websocket: WebSocket):
     await websocket.accept()
     task_id = websocket.scope["path_params"]["task_id"]
@@ -51,7 +51,7 @@ def register_socketio_app(app: FastAPI):
         logger=True,
         engineio_logger=True
     )
-    sio.register_namespace(TaskStatusNameSpace("/task_status"))
+    sio.register_namespace(TaskStatusNameSpace("/task-status"))
     asgi = socketio.ASGIApp(socketio_server=sio)
     app.mount("/ws", asgi)
 

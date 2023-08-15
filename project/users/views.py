@@ -73,3 +73,6 @@ def form_ws_example(request: Request):
     return template.TemplateResponse("form_ws.html", {'request': request})
 
 
+@users_router.get('/form-socketio/')
+def form_socketio_example(request: Request):
+    return template.TemplateResponse('form_socketio.html', {'request': request})
