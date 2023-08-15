@@ -32,34 +32,27 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     function updateProgress(yourForm, task_id, btnHtml) {
-        fetch(`/users/task-status/?task_id=${task_id}`, {
-            method: 'GET',
-        })
-            .then(response => response.json())
-            .then((res) => {
-                const taskStatus = res.state;
-                if (['SUCCESS', 'FAILURE'].includes(taskStatus)) {
-                    const msg = yourForm.querySelector('#messages');
-                    const submitBtn = yourForm.querySelector('button[type="submit"]');
-                    if (taskStatus === 'SUCCESS') {
-                        msg.innerHTML = 'job succeeded';
-                    } else if (taskStatus === 'FAILURE') {
-// display error message on the form
-                        msg.innerHTML = res.error;
-                    }
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = btnHtml;
-                } else {
-// the task is still running
-                    setTimeout(function () {
-                        updateProgress(yourForm, task_id, btnHtml);
-                    }, 1000);
+        const ws_url = `/ws/task-status/${task_id}`;
+        const WS = new WebSocket((location.protocol === 'https:' ? 'wss' : 'ws') + '://' + window.location.host + ws_url);
+        WS.onmessage = function (event) {
+            const res = JSON.parse(event.data);
+            const taskStatus = res.state;
+            if (['SUCCESS', 'FAILURE'].includes(taskStatus)) {
+                const msg = yourForm.querySelector('#messages');
+                const submitBtn = yourForm.querySelector('button[type="submit"]');
+                if (taskStatus === 'SUCCESS') {
+                    msg.innerHTML = 'job succeeded';
+                } else if (taskStatus === 'FAILURE') {
+                    msg.innerHTML = res.error;
                 }
-            })
-            .catch((error) => {
-                console.error('Error:', error)
-            });
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = btnHtml;
+// close the websocket because we do not need it now
+                WS.close();
+            }
+        }
     }
+
     function serialize(data)
     {
         let obj = {};
@@ -103,10 +96,9 @@
                     const task_id = res.task_id;
                     updateProgress(yourForm, task_id, btnHtml);
                     console.log(res);
-                })
-                .catch((error) => {
-                    console.error('Error:', error)
-                });
+                }).catch((error) => {
+                console.error('Error:', error);
+            });
         });
     });
 </script>

@@ -33,6 +33,8 @@ def task_process_notification(self):
         raise self.retry(exc=e, countdown=5)
 
 
+
+
 @task_postrun.connect
 def task_postrun_handler(task_id, **kwargs):
     from project.ws.views import update_celery_task_status
