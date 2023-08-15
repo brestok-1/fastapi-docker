@@ -15,6 +15,12 @@ class BaseConfig:
 
     CELERY_BROKER_URL: str = os.getenv('CELERY_BROKER_URL')
     CELERY_RESULT_BACKEND: str = os.getenv('CELERY_RESULT_BACKEND')
+    CELERY_BEAT_SCHEDULE = {
+        # 'task-scheduled-work': {
+        #     'task': 'task_scheduled_work',
+        #     'schedule': 5,
+        # }
+    }
 
     WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')
 

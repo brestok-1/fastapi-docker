@@ -33,6 +33,9 @@ def task_process_notification(self):
         raise self.retry(exc=e, countdown=5)
 
 
+@shared_task(name='task_scheduled_work')
+def task_scheduled_work():
+    logger.info('task_scheduled_work run')
 
 
 @task_postrun.connect
