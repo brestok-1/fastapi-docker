@@ -65,3 +65,5 @@ def update_celery_task_status_socketio(task_id):
     external_sio = socketio.RedisManager(setting.WS_MESSAGE_QUEUE, write_only=True)
     # emit an event
     external_sio.emit('status', get_task_info(task_id), room=task_id, namespace='/task-status')
+
+

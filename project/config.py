@@ -4,6 +4,13 @@ from functools import lru_cache
 from kombu import Queue
 
 
+def route_task(name: str, args, kwargs, options, task=None, **kw):
+    if ':' in name:
+        queue, _ = name.split(':')
+        return {'queue': queue}
+    return {'queue': 'default'}
+
+
 class BaseConfig:
     BASE_DIR: pathlib.Path = pathlib.Path(__file__).parent.parent
     DATABASE_URL = (f'postgresql://'
@@ -32,11 +39,13 @@ class BaseConfig:
         Queue('high_priority'),
         Queue('low_priority'),
     )
-    CELERY_TASK_ROUTER = {
-        'project.users.task.*': {
-            'queue': 'high_priority'
-        }
-    }
+
+    CELERY_TASK_ROUTER = (route_task,)
+    # {
+    # 'project.users.tasks.*': {
+    #     'queue': 'high_priority'
+    # }
+    # }
 
     WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')
 
