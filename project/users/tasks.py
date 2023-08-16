@@ -68,3 +68,9 @@ def dynamic_example_three():
     logger.info("Example Three")
 
 
+@shared_task()
+def task_send_welcome_email(user_id):
+    from project.users.models import User
+    with db_context() as session:
+        user = session.get(User, user_id)
+        logger.info(f"send email to {user.email} {user.id}")
