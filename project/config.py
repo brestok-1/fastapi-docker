@@ -59,7 +59,8 @@ class ProductionConfig(BaseConfig):
 
 
 class TestConfig(BaseConfig):
-    pass
+    DATABASE_URL = 'sqlite://./test.db'
+    DATABASE_CONNECT_DICT = {'check_same_thread' : False}
 
 
 @lru_cache()
