@@ -1,0 +1,151 @@
+[2023-08-16 13:00:17,451: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-16 13:00:17,452: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-16 13:00:17,846: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-16 13:00:17,851: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-16 13:00:17,851: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-16 13:00:17,853: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-16 13:00:18,862: INFO/MainProcess] mingle: all alone
+[2023-08-16 13:00:18,912: INFO/MainProcess] celery@b04b3973ab04 ready.
+[2023-08-16 13:00:27,789: INFO/MainProcess] beat: Starting...
+[2023-08-16 13:00:28,234: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-16 13:00:28,234: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-16 13:00:28,699: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-16 13:00:28,705: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-16 13:00:28,705: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-16 13:00:28,707: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-16 13:00:29,714: INFO/MainProcess] mingle: all alone
+[2023-08-16 13:00:29,726: INFO/MainProcess] celery@b04b3973ab04 ready.
+[2023-08-16 13:00:38,872: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-16 13:01:41,303: INFO/MainProcess] Task low_priority:dynamic_example_two[345bb6ed-d671-4c4f-b814-e8673b400b70] received
+[2023-08-16 13:01:41,317: INFO/ForkPoolWorker-7] Task low_priority:dynamic_example_two[345bb6ed-d671-4c4f-b814-e8673b400b70] succeeded in 0.00878346299941768s: None
+[2023-08-16 13:01:41,322: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:01:41,327: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:01:41,328: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:01:41,331: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:01:41,351: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:01:41,352: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:04:55,006: INFO/MainProcess] Task low_priority:dynamic_example_two[a77fda0e-3774-40cf-9856-f4ed59d40e95] received
+[2023-08-16 13:04:55,012: INFO/ForkPoolWorker-7] Task low_priority:dynamic_example_two[a77fda0e-3774-40cf-9856-f4ed59d40e95] succeeded in 0.002506476999769802s: None
+[2023-08-16 13:04:55,014: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:04:55,019: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:04:55,020: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:04:55,023: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:04:55,041: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:04:55,042: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:05:02,977: INFO/MainProcess] Task low_priority:dynamic_example_two[c91bb8ab-e79e-4832-81d1-3bebf1801645] received
+[2023-08-16 13:05:02,984: INFO/ForkPoolWorker-7] Task low_priority:dynamic_example_two[c91bb8ab-e79e-4832-81d1-3bebf1801645] succeeded in 0.0030202970001482754s: None
+[2023-08-16 13:05:02,987: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:05:02,990: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:05:02,990: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:05:02,993: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:05:03,012: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:05:03,013: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:05:03,274: INFO/MainProcess] Task low_priority:dynamic_example_two[72e83b6b-747a-4c0f-ae0a-b3d0ed733fba] received
+[2023-08-16 13:05:03,281: INFO/ForkPoolWorker-7] Task low_priority:dynamic_example_two[72e83b6b-747a-4c0f-ae0a-b3d0ed733fba] succeeded in 0.003333948000545206s: None
+[2023-08-16 13:05:03,283: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:05:03,287: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:05:03,288: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-16 13:05:03,291: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-16 13:05:03,310: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:05:03,310: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-16 13:24:07,617: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 336, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.10/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 726, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.10/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 1336, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 566, in on_readable
+    chan.handlers[type]()
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 910, in _receive
+    ret.append(self._receive_one(c))
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 920, in _receive_one
+    response = c.parse_response()
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1542, in parse_response
+    response = self._execute(conn, try_read)
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1518, in _execute
+    return conn.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1520, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1507, in _disconnect_raise_connect
+    raise error
+  File "/usr/local/lib/python3.10/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1519, in <lambda>
+    lambda: command(*args, **kwargs),
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1540, in try_read
+    return conn.read_response(disconnect_on_error=False)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 882, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 349, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 359, in _read_response
+    raw = self._buffer.readline()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 262, in readline
+    self._read_from_socket()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 215, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2023-08-16 13:24:07,627: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:386: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-08-16 13:24:07,630: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-16 13:24:07,631: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error 111 connecting to redis:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2023-08-16 13:24:09,638: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 4.00 seconds... (2/100)
+
+[2023-08-16 13:24:13,648: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 6.00 seconds... (3/100)
+
