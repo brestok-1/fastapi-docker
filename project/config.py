@@ -49,6 +49,8 @@ class BaseConfig:
 
     WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')
 
+    UPLOADS_DEFAULT_DEST = str(BASE_DIR / 'upload')
+
 
 class DevelopmentConfig(BaseConfig):
     pass
