@@ -107,28 +107,7 @@ def transaction_celery(session: Session = Depends(get_db_session)):
     return {'message': 'done'}
 
 
-@users_router.post("/user_subscribe/")
-def user_subscribe(user_body: UserBody, session: Session = Depends(get_db_session)):
-    try:
-        user = session.query(User).filter_by(username=user_body.username).first()
-        if user:
-            user_id = user.id
-        else:
-            user = User(
-                username=user_body.username,
-                email=user_body.email,
-            )
-            session.add(user)
-            session.commit()
-            user_id = user.id
-    except Exception as e:
-        session.rollback()
-        raise
-    task_add_subscribe.delay(user_id)
-    return {"message": "send task to Celery successfully"}
-
-
-@users_router.post('/user_subscribe/')
+@users_router.post('/user-subscribe/')
 def user_subscribe(user_body: UserBody, session: Session = Depends(get_db_session)):
     try:
         user = session.query(User).filter_by(username=user_body.username).first()

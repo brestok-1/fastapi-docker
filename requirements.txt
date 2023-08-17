@@ -17,6 +17,8 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.3.0
 exceptiongroup==1.1.2
+factory-boy==3.3.0
+Faker==19.3.0
 fastapi==0.101.0
 flower==2.0.0
 greenlet==2.0.2

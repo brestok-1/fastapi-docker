@@ -97,3 +97,4 @@ def task_add_subscribe(self, user_id):
             )
         except Exception as exc:
             raise self.retry(exc)
+
