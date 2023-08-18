@@ -8,6 +8,7 @@ from celery import shared_task
 from celery.signals import task_postrun, after_setup_logger
 from celery.utils.log import get_task_logger
 
+from project.celery_utils import custom_celery_task
 from project.database import db_context
 
 logger = get_task_logger('__name__')
@@ -33,7 +34,7 @@ def sample_task(email: str):
     api_call(email)
 
 
-@shared_task(bind=True, base=BaseTaskWithRetry)
+@custom_celery_task(max_retries=3)
 def task_process_notification(self):
     if not random.choice([1, 0]):
         raise Exception

@@ -4,4 +4,4 @@ tdd_router = APIRouter(
     prefix='/tdd',
 )
 
-from . import models
+from . import models, views
