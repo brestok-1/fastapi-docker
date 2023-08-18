@@ -32,3 +32,8 @@ def db_session(app):
 def client(app):
     from fastapi.testclient import TestClient
     yield TestClient(app)
+
+
+@pytest.fixture(autouse=True)
+def tmp_upload_dir(tmpdir, settings):
+    settings.UPLOADS_DEFAULT_DEST = tmpdir.mkdir('tmp')
