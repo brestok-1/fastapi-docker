@@ -35,8 +35,8 @@ def sample_task(email: str):
 
 
 @custom_celery_task(max_retries=3)
-def task_process_notification(self):
-    if not random.choice([1, 0]):
+def task_process_notification():
+    if not random.choice([0, 0]):
         raise Exception
     requests.post('https://httpbin.org/delay/5')
 
