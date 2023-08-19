@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+worker_ready(){
+  celery -A project.asgi.celery inspect ping
+}
+
+until worker_ready ; do
+    >&2 echo 'Celery worker is not available'
+done
+>&2 echo 'Celery worker is available'
+
+celery -A project.asgi.celery flower --broker=${CELERY_BROKER_URL} \
+--basic_auth="${CELERY_FLOWER_USER}:${CELERY_FLOWER_PASSWORD}"
