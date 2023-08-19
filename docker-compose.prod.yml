@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./compose/production/nginx
+    volumes:
+      - uploadfiles:/fastapidocker/upload
+    ports:
+      - 80:80 # FastAPI
+      - 5555:5555 #Flower
+      - 15672:15672 #RabbitMQ
+    depends_on:
+      - web
+      - flower
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/production/fastapi/Dockerfile
+    command: /start
+    volumes:
+      - uploadfiles:/fastapidocker/upload
+    ports:
+      - 8000:8000
+    env_file:
+      - prod.env
+    depends_on:
+      - redis
+      - db
+      - rabbitmq
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - prod.env
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  rabbitmq:
+    image: rabbitmq
+    env_file:
+      - prod.env
+  celery_worker:
+    build:
+      context: .
+      dockerfile: ./compose/production/fastapi/Dockerfile
+    image: fastapi_celery_example_celery_worker
+    command: /start-celeryworker
+    volumes:
+      - uploadfiles:/fastapidocker/upload
+    env_file:
+      - prod.env
+    depends_on:
+      - redis
+      - db
+      - rabbitmq
+  celery_beat:
+    build:
+      context: .
+      dockerfile: ./compose/production/fastapi/Dockerfile
+    image: fastapi_celery_example_celery_worker
+    command: /start-celerybeat
+    volumes:
+      - uploadfiles:/fastapidocker/upload
+    env_file:
+      - prod.env
+    depends_on:
+      - redis
+      - db
+      - rabbitmq
+  flower:
+    build:
+      context: .
+      dockerfile: compose/production/fastapi/Dockerfile
+    image: fastapi_celery_example_celery_flower
+    command: /start-flower
+    volumes:
+      - uploadfiles:/fastapidocker/upload
+    env_file:
+      - prod.env
+    ports:
+      - 5555:5555
+    depends_on:
+      - redis
+      - db
+      - rabbitmq
+
+volumes:
+  postgres_data:
+  uploadfiles:
