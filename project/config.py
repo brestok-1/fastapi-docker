@@ -46,6 +46,9 @@ class BaseConfig:
     #     'queue': 'high_priority'
     # }
     # }
+    CELERY_TASK_ACKS_LATE = True
+    CELERY_TASK_SOFT_TIME_LIMIT = 15 * 60
+    CELERY_TASK_TIME_LIMIT = CELERY_TASK_SOFT_TIME_LIMIT + 30
 
     WS_MESSAGE_QUEUE = os.getenv('WS_MESSAGE_QUEUE')
 

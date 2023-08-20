@@ -11994,3 +11994,726 @@ you should set broker_connection_retry_on_startup to True.
 [2023-08-18 14:08:32,943: INFO/MainProcess] mingle: all alone
 [2023-08-18 14:08:32,998: INFO/MainProcess] celery@ceef4771ffc0 ready.
 [2023-08-18 14:08:36,994: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 11:12:17,320: INFO/MainProcess] beat: Starting...
+[2023-08-20 11:12:17,624: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 11:12:17,624: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 11:12:18,079: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:12:18,085: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 11:12:18,086: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:12:18,090: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 11:12:19,098: INFO/MainProcess] mingle: all alone
+[2023-08-20 11:12:19,129: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 11:12:28,249: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 11:14:11,571: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 336, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.10/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 726, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.10/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 1336, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 566, in on_readable
+    chan.handlers[type]()
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 959, in _brpop_read
+    dest__item = self.client.parse_response(self.client.connection,
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1286, in parse_response
+    response = connection.read_response()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 882, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 349, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 359, in _read_response
+    raw = self._buffer.readline()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 262, in readline
+    self._read_from_socket()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 215, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2023-08-20 11:14:11,583: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:386: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-08-20 11:14:11,587: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:14:11,589: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error 111 connecting to redis:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2023-08-20 11:14:13,596: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 4.00 seconds... (2/100)
+
+[2023-08-20 11:14:17,605: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -3 connecting to redis:6379. Temporary failure in name resolution..
+Trying again in 6.00 seconds... (3/100)
+
+[2023-08-20 11:17:03,825: INFO/MainProcess] beat: Starting...
+[2023-08-20 11:17:04,206: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 11:17:04,207: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 11:17:04,653: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:17:04,660: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 11:17:04,661: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:17:04,664: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 11:17:05,673: INFO/MainProcess] mingle: all alone
+[2023-08-20 11:17:05,704: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 11:17:15,232: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 11:30:22,930: INFO/MainProcess] beat: Starting...
+[2023-08-20 11:30:23,192: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 11:30:23,193: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 11:30:23,633: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:30:23,638: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 11:30:23,639: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:30:23,642: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 11:30:24,652: INFO/MainProcess] mingle: all alone
+[2023-08-20 11:30:24,663: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 11:30:33,875: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 11:30:49,407: INFO/MainProcess] Task project.users.tasks.sample_task[e1647ea0-2fe0-4df4-a25c-2f517207bb74] received
+[2023-08-20 11:30:49,423: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[e1647ea0-2fe0-4df4-a25c-2f517207bb74] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 11:30:49,430: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:30:49,436: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:30:49,437: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:30:49,440: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:30:49,478: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:30:49,479: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:30:51,102: INFO/MainProcess] Task project.users.tasks.sample_task[44546ee8-e64f-41bb-8063-baa22cd796ac] received
+[2023-08-20 11:31:02,248: INFO/ForkPoolWorker-7] Task project.users.tasks.sample_task[44546ee8-e64f-41bb-8063-baa22cd796ac] succeeded in 11.14208050100001s: None
+[2023-08-20 11:31:02,251: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:31:02,254: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:31:02,255: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:31:02,258: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:31:02,279: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:31:02,279: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:33:41,729: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 11:33:41,729: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 11:33:42,192: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:33:42,197: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 11:33:42,198: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 11:33:42,200: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 11:33:43,209: INFO/MainProcess] mingle: all alone
+[2023-08-20 11:33:43,249: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 11:33:43,874: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 11:36:00,164: INFO/MainProcess] Task project.users.tasks.sample_task[759b87e5-d174-489e-8380-798a449a1d84] received
+[2023-08-20 11:36:10,219: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[759b87e5-d174-489e-8380-798a449a1d84] raised unexpected: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'httpbin.org\', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa333139870>: Failed to resolve \'httpbin.org\' ([Errno -3] Temporary failure in name resolution)"))'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fa333139870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa333139870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 34, in api_call
+    requests.post('https://httpbin.org/delay/5')
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa333139870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+[2023-08-20 11:36:10,227: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:10,232: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:10,233: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:10,236: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:10,273: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:36:10,274: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:36:14,801: INFO/MainProcess] Task project.users.tasks.sample_task[0162a376-7ade-45f6-8195-1144be746018] received
+[2023-08-20 11:36:28,711: INFO/MainProcess] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] received
+[2023-08-20 11:36:50,369: INFO/ForkPoolWorker-7] Task project.users.tasks.sample_task[0162a376-7ade-45f6-8195-1144be746018] succeeded in 35.562683750999895s: None
+[2023-08-20 11:36:50,371: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:50,375: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:50,376: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:50,379: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:50,411: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:36:50,411: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:36:57,486: INFO/MainProcess] Task project.users.tasks.sample_task[95adcab8-2052-4c56-a70b-7dac67b1f48d] received
+[2023-08-20 11:36:57,494: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[95adcab8-2052-4c56-a70b-7dac67b1f48d] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 11:36:57,498: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:57,502: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:57,503: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:36:57,507: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:36:57,546: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:36:57,547: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:03,925: INFO/MainProcess] Task project.users.tasks.sample_task[960a8dc3-0354-435c-917a-011a8304cd1d] received
+[2023-08-20 11:37:03,936: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[960a8dc3-0354-435c-917a-011a8304cd1d] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 11:37:03,939: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:03,945: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:03,946: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:03,950: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:03,987: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:03,988: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:04,849: INFO/MainProcess] Task project.users.tasks.sample_task[ccc85666-3fee-4ff2-985d-d45db3d0b274] received
+[2023-08-20 11:37:04,858: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[ccc85666-3fee-4ff2-985d-d45db3d0b274] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 11:37:04,862: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:04,866: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:04,867: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:04,872: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:04,909: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:04,911: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:05,607: INFO/MainProcess] Task project.users.tasks.sample_task[a2e1079e-9734-413b-b1ea-a14cbcaff482] received
+[2023-08-20 11:37:05,616: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[a2e1079e-9734-413b-b1ea-a14cbcaff482] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 11:37:05,620: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:05,624: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:05,625: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:05,630: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:05,668: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:05,669: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:06,461: INFO/MainProcess] Task project.users.tasks.sample_task[866ee6a4-8f0a-43b6-ace7-8799bf040ffc] received
+[2023-08-20 11:37:16,483: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[866ee6a4-8f0a-43b6-ace7-8799bf040ffc] raised unexpected: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'httpbin.org\', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa33311ba30>: Failed to resolve \'httpbin.org\' ([Errno -3] Temporary failure in name resolution)"))'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fa33311ba30>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa33311ba30>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 34, in api_call
+    requests.post('https://httpbin.org/delay/5')
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa33311ba30>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+[2023-08-20 11:37:16,488: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:16,492: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:16,493: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:16,496: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:16,517: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:16,518: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:40,388: ERROR/ForkPoolWorker-8] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] raised unexpected: SSLError(MaxRetryError("HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1007)')))"))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/local/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/local/lib/python3.10/ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.10/ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLZeroReturnError: TLS/SSL connection has been closed (EOF) (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: TLS/SSL connection has been closed (EOF) (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 34, in api_call
+    requests.post('https://httpbin.org/delay/5')
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1007)')))
+[2023-08-20 11:37:40,390: INFO/ForkPoolWorker-8] Connecting to redis
+[2023-08-20 11:37:40,392: INFO/ForkPoolWorker-8] Redis connection made
+[2023-08-20 11:37:40,393: INFO/ForkPoolWorker-8] Connecting to redis
+[2023-08-20 11:37:40,393: INFO/ForkPoolWorker-8] Redis connection made
+[2023-08-20 11:37:40,401: INFO/ForkPoolWorker-8] Redis connection lost
+[2023-08-20 11:37:40,401: INFO/ForkPoolWorker-8] Redis connection lost
+[2023-08-20 11:37:41,421: INFO/MainProcess] Task project.users.tasks.sample_task[7407ab1c-670b-49c6-a0af-d05ef26a31b3] received
+[2023-08-20 11:37:59,807: INFO/ForkPoolWorker-7] Task project.users.tasks.sample_task[7407ab1c-670b-49c6-a0af-d05ef26a31b3] succeeded in 18.381135034999943s: None
+[2023-08-20 11:37:59,809: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:59,812: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:59,813: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:37:59,816: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:37:59,842: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:37:59,843: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:38:18,513: INFO/MainProcess] Task project.users.tasks.sample_task[6e657305-b7ed-45f5-8298-20f41e897483] received
+[2023-08-20 11:38:28,533: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[6e657305-b7ed-45f5-8298-20f41e897483] raised unexpected: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'httpbin.org\', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa332d56380>: Failed to resolve \'httpbin.org\' ([Errno -3] Temporary failure in name resolution)"))'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fa332d56380>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa332d56380>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 34, in api_call
+    requests.post('https://httpbin.org/delay/5')
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa332d56380>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+[2023-08-20 11:38:28,536: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:38:28,540: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:38:28,541: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:38:28,544: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:38:28,572: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:38:28,572: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:40:47,371: INFO/MainProcess] Task generate_avatar_thumbnail[c30eff4e-7fee-40b3-941f-7a93a977dd12] received
+[2023-08-20 11:40:47,731: INFO/ForkPoolWorker-7] Task generate_avatar_thumbnail[c30eff4e-7fee-40b3-941f-7a93a977dd12] succeeded in 0.35404495900002075s: None
+[2023-08-20 11:40:47,731: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:40:47,732: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:40:47,733: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 11:40:47,733: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 11:40:47,742: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 11:40:47,742: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:22:53,953: INFO/MainProcess] beat: Starting...
+[2023-08-20 12:22:54,453: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 12:22:54,454: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 12:22:54,886: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:22:54,891: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 12:22:54,892: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:22:54,894: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 12:22:55,903: INFO/MainProcess] mingle: all alone
+[2023-08-20 12:22:55,918: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 12:23:04,874: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 12:25:28,389: INFO/MainProcess] Task generate_avatar_thumbnail[1b63d7b9-c1bf-48c5-a05c-fc4d29120020] received
+[2023-08-20 12:25:28,811: INFO/ForkPoolWorker-7] Task generate_avatar_thumbnail[1b63d7b9-c1bf-48c5-a05c-fc4d29120020] succeeded in 0.4147540690000824s: None
+[2023-08-20 12:25:28,812: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:25:28,814: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:25:28,814: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:25:28,815: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:25:28,822: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:25:28,822: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:25:49,393: INFO/MainProcess] Task generate_avatar_thumbnail[6f706139-4556-40f7-abe0-5279c532ebbf] received
+[2023-08-20 12:25:49,451: INFO/ForkPoolWorker-7] Task generate_avatar_thumbnail[6f706139-4556-40f7-abe0-5279c532ebbf] succeeded in 0.05229136100024334s: None
+[2023-08-20 12:25:49,453: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:25:49,457: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:25:49,458: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:25:49,461: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:25:49,495: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:25:49,496: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:51:17,733: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 12:51:17,733: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 12:51:18,130: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:51:18,136: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 12:51:18,137: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:51:18,139: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 12:51:19,147: INFO/MainProcess] mingle: all alone
+[2023-08-20 12:51:19,186: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 12:51:19,194: INFO/MainProcess] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] received
+[2023-08-20 12:51:19,874: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-08-20 12:51:29,232: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] raised unexpected: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'httpbin.org\', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f104c519870>: Failed to resolve \'httpbin.org\' ([Errno -3] Temporary failure in name resolution)"))'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f104c519870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f104c519870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 34, in api_call
+    requests.post('https://httpbin.org/delay/5')
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /delay/5 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f104c519870>: Failed to resolve 'httpbin.org' ([Errno -3] Temporary failure in name resolution)"))
+[2023-08-20 12:51:29,239: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:51:29,243: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:51:29,243: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:51:29,247: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:51:29,270: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:51:29,271: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:51:45,868: INFO/MainProcess] beat: Starting...
+[2023-08-20 12:51:46,358: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/app/utils.py:203: CDeprecationWarning: 
+    The 'CELERY_RESULT_BACKEND' setting is deprecated and scheduled for removal in
+    version 6.0.0. Use the result_backend instead
+
+  deprecated.warn(description=f'The {setting!r} setting',
+
+[2023-08-20 12:51:46,358: WARNING/MainProcess] Please run `celery upgrade settings path/to/settings.py` to avoid these warnings and to allow a smoother upgrade to Celery 6.0.
+[2023-08-20 12:51:46,795: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:51:46,802: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-08-20 12:51:46,803: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-08-20 12:51:46,805: INFO/MainProcess] mingle: searching for neighbors
+[2023-08-20 12:51:47,816: INFO/MainProcess] mingle: all alone
+[2023-08-20 12:51:47,828: INFO/MainProcess] celery@b34dafa35bcc ready.
+[2023-08-20 12:51:47,831: INFO/MainProcess] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] received
+[2023-08-20 12:51:47,836: ERROR/ForkPoolWorker-7] Task project.users.tasks.sample_task[ac5d1d2b-f3df-4b20-87ec-1ca64be360cd] raised unexpected: Exception('Random processing error')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 760, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/fastapidocker/project/users/tasks.py", line 34, in sample_task
+    api_call(email)
+  File "/fastapidocker/project/users/views.py", line 32, in api_call
+    raise Exception('Random processing error')  # used for testing failed call
+Exception: Random processing error
+[2023-08-20 12:51:47,838: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:51:47,839: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:51:47,840: INFO/ForkPoolWorker-7] Connecting to redis
+[2023-08-20 12:51:47,840: INFO/ForkPoolWorker-7] Redis connection made
+[2023-08-20 12:51:47,848: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:51:47,848: INFO/ForkPoolWorker-7] Redis connection lost
+[2023-08-20 12:51:57,153: INFO/MainProcess] Events of group {task} enabled by remote.

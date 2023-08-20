@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -o errexit
-set -o nounset
+set -o nounsetрироваться в системе по паре почта и пароль, а также войти по этим данным.
 
 watchfiles	\
 		--filter python	\
-    'celery	-A	main.celery	worker --loglevel=info -Q high_priority,default'
+    'celery	-A	main.celery	worker --pool eventlet --concurrency=100 --loglevel=info -Q high_priority,default'
