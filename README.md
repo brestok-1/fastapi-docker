@@ -31,10 +31,11 @@ or [here](http://127.0.0.1:8000/api/schema/swagger-ui).
 ***Languages***
 
 ![Python](https://img.shields.io/badge/-Python-1C1C1C?&style=for-the-badge)
+![Js](https://img.shields.io/badge/-JavaScript-1C1C1C?&style=for-the-badge)
 
 ***Framework***
 
-![Django](https://img.shields.io/badge/-Django-1C1C1C?&style=for-the-badge)
+![Fastapi](https://img.shields.io/badge/-Fastapi-1C1C1C?&style=for-the-badge)
 
 ***Databases***
 
@@ -43,18 +44,30 @@ or [here](http://127.0.0.1:8000/api/schema/swagger-ui).
 
 ***Libraries***
 
-![Django-allauth](https://img.shields.io/badge/-Django--rest--framework-1C1C1C?&style=for-the-badge)
-![aioredis](https://img.shields.io/badge/-django--taggit-1C1C1C?&style=for-the-badge)
-![Redis](https://img.shields.io/badge/-django--redis-1C1C1C?&style=for-the-badge)
 ![Celery](https://img.shields.io/badge/-Celery-1C1C1C?&style=for-the-badge)
-![psycopg2](https://img.shields.io/badge/-psycopg2-1C1C1C?&style=for-the-badge)
-![simplejwt](https://img.shields.io/badge/-simplejwt-1C1C1C?&style=for-the-badge)
-![ckeditor](https://img.shields.io/badge/-ckeditor-1C1C1C?&style=for-the-badge)
-![drf-spectacular](https://img.shields.io/badge/-drf--spectacular-1C1C1C?&style=for-the-badge)
+![Redis](https://img.shields.io/badge/-django--redis-1C1C1C?&style=for-the-badge)
+![aioredis](https://img.shields.io/badge/-aioredis-1C1C1C?&style=for-the-badge)
+![alembic](https://img.shields.io/badge/-alembic-1C1C1C?&style=for-the-badge)
+![broadcaster](https://img.shields.io/badge/-broadcaster-1C1C1C?&style=for-the-badge)
+![factory-boy](https://img.shields.io/badge/-factory--boy-1C1C1C?&style=for-the-badge)
+![flower](https://img.shields.io/badge/-flower-1C1C1C?&style=for-the-badge)
+![gunicorn](https://img.shields.io/badge/-gunicorn-1C1C1C?&style=for-the-badge)
+![Jinja2](https://img.shields.io/badge/-Jinja2-1C1C1C?&style=for-the-badge)
+![pydantic](https://img.shields.io/badge/-pydantic-1C1C1C?&style=for-the-badge)
+![pytest](https://img.shields.io/badge/-pytest-1C1C1C?&style=for-the-badge)
+![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-1C1C1C?&style=for-the-badge)
+![requests](https://img.shields.io/badge/-requests-1C1C1C?&style=for-the-badge)
+![watchfiles](https://img.shields.io/badge/-watchfiles-1C1C1C?&style=for-the-badge)
+![websockets](https://img.shields.io/badge/-websockets-1C1C1C?&style=for-the-badge)
+![python-socketio](https://img.shields.io/badge/-python--socketio-1C1C1C?&style=for-the-badge)
 
 ***Other***
 
 ![Docker](https://img.shields.io/badge/-Docker-1C1C1C?&style=for-the-badge)
+![RabbitMQ](https://img.shields.io/badge/-rabbitmq-1C1C1C?&style=for-the-badge)
+![Websockets](https://img.shields.io/badge/-websockets-1C1C1C?&style=for-the-badge)
+![Socketio](https://img.shields.io/badge/-Socketio-1C1C1C?&style=for-the-badge)
+![ngnix](https://img.shields.io/badge/-ngnix-1C1C1C?&style=for-the-badge)
 
 To start with, I needed to implement user registration and authentication. As I mentioned earlier, I used JSON Web
 Token (JWT) authentication, which is a modern and popular standard. Next, I worked on posts and implemented search,
